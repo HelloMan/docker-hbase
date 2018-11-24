@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   phoenix-queryserver-1:
-    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.2
+    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.0
     networks:
     - hbase
     deploy:
@@ -16,7 +16,7 @@ services:
         - node.hostname == akswnc4.aksw.uni-leipzig.de
 
   phoenix-queryserver-2:
-    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.2
+    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.0
     networks:
     - hbase
     deploy:
@@ -31,7 +31,7 @@ services:
 
 
   phoenix-queryserver-3:
-    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.2
+    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.0
     networks:
     - hbase
     deploy:

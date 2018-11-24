@@ -67,7 +67,7 @@ services:
       - 2181:2181
 
   hbase-master:
-    image: bde2020/hbase-master:1.0.0-hbase2.0.2
+    image: bde2020/hbase-master:1.0.0-hbase2.0.0
     container_name: hbase-master
     hostname: hbase-master
     env_file:
@@ -78,7 +78,7 @@ services:
       - 16010:16010
 
   hbase-region:
-    image: bde2020/hbase-regionserver:1.0.0-hbase2.0.2
+    image: bde2020/hbase-regionserver:1.0.0-hbase2.0.0
     container_name: hbase-regionserver
     hostname: hbase-regionserver
     env_file:
@@ -89,12 +89,14 @@ services:
     ports:
       - 16030:16030
   phoenix_queryserver:
-    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.2
+    image: bde2020/phoenix-queryserver:1.0.0-hbase2.0.0
     container_name: phoenix_queryserver
     ports:
-    - 8765:8765
+      - 8765:8765
+    env_file:
+      - ./hbase-distributed-local.env
     environment:
-      SERVICE_PRECONDITION: "hbase-master:16010"
+      SERVICE_PRECONDITION: "hbase-master:16010 zoo:2181"
 
 volumes:
   hadoop_namenode:
